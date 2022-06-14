@@ -1,0 +1,6 @@
+br/data/model/ItemCompra.class
+br/data/crud/CrudProduto.class
+br/data/model/Produto.class
+br/web/JsfComprar.class
+br/model/rules/Comprar.class
+br/web/jsfProduto.class
