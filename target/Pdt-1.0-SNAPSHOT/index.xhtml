@@ -3,7 +3,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Login</title>
     </h:head>
@@ -12,48 +13,50 @@
             display: flex;
             margin: 0;
             width: 100%; 
-            height: 100vh; 
+            min-height: 100vh; 
             align-items: center;
             justify-content: center;
             background: black;
             height: 100vh;"
          >
-            <h:form style="
+            <div style="
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    height:300px;
+                    height:350px;
                     width: 350px;
                     background: white;
                     border-radius: 8px;
-                    padding: 16px;"
-            >
-                <label for="ra">RA</label>
-                <!--<p:inputText id="ra" value="#{managedBeanSession.valor1}"/>-->
-                <br/>
-                <label for="password">Senha</label>
-                <!--<p:inputText id="password" value="#{managedBeanSession.valor2}"/>-->
-                <br/>
-                <h:commandButton 
-                    action="#{webRoutes.goTo('perfil')}"
-                    value="Entrar"
-                    style="box-shadow:inset 0px 0px 15px 3px #23395e;
-                            background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
-                            background-color:#2e466e;
-                            border-radius:8px;
-                            border:1px solid #1f2f47;
-                            display:inline-block;
-                            cursor:pointer;
-                            color:#ffffff;
-                            font-family:Arial;
-                            font-size:19px;
-                            padding:13px 47px;
-                            text-decoration:none;
-                            text-shadow:0px 1px 0px #263666;
-                        "
-                />
-            </h:form>
+                    padding: 16px;">
+                
+                <h:form style="
+                    width: 100%;display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center"
+                >
+                    <label for="ra" style="width: 100%; display: flex;flex-direction: column;">RA:
+                        <p:inputText value="#{auth.login}" required="true" requiredMessage="Informe seu e-mail"/>   
+                    </label>
+
+                    <br/>
+                    <label for="password" style="width: 100%;display: flex;flex-direction: column;">Senha:
+                        <p:password id="password" toggleMask="true" value="#{auth.password}" required="true" requiredMessage="Informe sua senha" style="width: 100%;"/>
+                    </label>
+                    <br/>
+                    <p:commandButton value="Acessar" icon="pi pi-sign-in" iconPos="right" action="#{auth.authenticate()}"  style="width: 100%;"/>
+                    <p>OU</p>
+                </h:form>
+                <h:form style="width: 100%;">
+                    <h:commandButton class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-right" value="Registre-se" action="#{webRoutes.goTo('registro')}" style="padding: 0.5rem 2rem 0.5rem 1rem;width: 100%;"/>
+                </h:form>
+            </div>
+        </div>
+        <div style="position:fixed; left: 10px; bottom: 10px">
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>  
         </div>
     </h:body>
 </html>
