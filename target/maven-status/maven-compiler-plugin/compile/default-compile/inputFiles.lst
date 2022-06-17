@@ -1,6 +1,9 @@
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/model/rules/Comprar.java
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/data/crud/CrudProduto.java
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/web/JsfComprar.java
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/web/jsfProduto.java
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/data/model/ItemCompra.java
-/home/kasm-user/projetos/AulaGrad/Pdt/src/main/java/br/data/model/Produto.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/jsfProduto.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/model/Produto.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfPerfil.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/CrudProduto.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/WebRoutes.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/model/ItemCompra.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfComprar.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfMessages.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/model/rules/Comprar.java
