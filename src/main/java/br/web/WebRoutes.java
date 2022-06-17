@@ -4,8 +4,8 @@
  */
 package br.web;
 
-import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 @Named(value = "webRoutes")
 @RequestScoped
@@ -16,7 +16,7 @@ import javax.enterprise.context.RequestScoped;
 public class WebRoutes {
 
     public String goTo(String page) {
-        System.out.println("regra de algo -- indo para a p1");
+        System.out.println("Indo para a página " + page);
         return page + ".xhtml";
     }
     
