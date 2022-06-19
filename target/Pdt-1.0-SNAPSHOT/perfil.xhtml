@@ -18,7 +18,9 @@
 
             <div style="display: flex; align-items: center; justify-content: center; height: 350px;">
                 <h:button value="Disciplinas" onclick="#{jsfPerfil.goTelaDisciplinas()}" style="margin-left: 20px; cursor: pointer;"/>
-                <h:button value="Grades" onclick="#{jsfPerfil.goTelaGrades()}" style="margin-left: 20px; cursor: pointer;"/>
+                <h:form>
+                    <h:commandButton value="Grades" action="#{webRoutes.goTo('grade')}" />
+                </h:form>
                 <h:form>
                     <h:commandButton value="Sair do perfil" action="#{webRoutes.goTo('index')}" />
                 </h:form>
