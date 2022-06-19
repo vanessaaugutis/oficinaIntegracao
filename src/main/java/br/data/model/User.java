@@ -15,7 +15,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -48,7 +47,6 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Basic(optional = false)
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -56,7 +54,6 @@ public class User implements Serializable {
     @Size(min = 1, max = 60)
     @Column(name = "name")
     private String name;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
@@ -68,13 +65,10 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
     @Basic(optional = true)
-    //@NotNull
     @Column(name = "created")
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
-    @Lob
     @Basic(optional = false)
-    //@NotNull
     @Column(name = "enable")
     private boolean enable;
     @Size(max = 200)

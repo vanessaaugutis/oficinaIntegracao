@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class EMNames implements java.io.Serializable {
 
-    public static final String EMN1 = "pwdPU";
+    public static final String EMN1 = "oficina-database";
 
     public static Map<String, String> getEMN1Props() {
 
