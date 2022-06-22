@@ -5,12 +5,12 @@
  */
 package br.web;
 
-import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 /**
  *
- * @author alexandrelerario
+ * @author
  */
 @Named(value = "jsfApp")
 @ApplicationScoped
@@ -20,7 +20,6 @@ public class JsfApp {
      * Creates a new instance of JsfApp
      */
     public JsfApp() {
-     //   this.verify();
     }
 
 

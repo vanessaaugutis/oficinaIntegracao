@@ -4,12 +4,12 @@
  */
 package br.web;
 
+import javax.enterprise.context.ApplicationScoped;
 /**
  *
  * @author default
  */
 import javax.inject.Named;
-import javax.enterprise.context.ApplicationScoped;
 
 @Named(value = "jsfPerfil")
 @ApplicationScoped
@@ -43,19 +43,6 @@ public class JsfPerfil {
     public String getRaAluno() {
         return raAluno;
     }
-    
-    public void sairPerfil() {
-        //Voltar para tela de login
-    }
-    
-    public void goTelaDisciplinas() {
-        //ir para tela de disciplinas
-    }
-    
-    public void goTelaGrades() {
-        //ir para tela de grades
-    }
-    
     
 }
 
