@@ -37,21 +37,18 @@
                     align-items: center;
                     justify-content: center"
                 >
-                    <label for="ra" style="width: 100%; display: flex;flex-direction: column;">RA:
+                    <label for="email" style="width: 100%; display: flex;flex-direction: column;">Email:
                         <p:inputText value="#{auth.login}" required="true" requiredMessage="Informe seu e-mail"/>   
                     </label>
 
                     <br/>
                     <label for="password" style="width: 100%;display: flex;flex-direction: column;">Senha:
-                        <p:password id="password" toggleMask="true" value="#{auth.password}" required="true" requiredMessage="Informe sua senha" style="width: 100%;"/>
+                        <p:password id="password" toggleMask="true" value="#{auth.senha}" required="true" requiredMessage="Informe sua senha" style="width: 100%;"/>
                     </label>
                     <br/>
                     <p:commandButton value="Acessar" icon="pi pi-sign-in" iconPos="right" action="#{auth.authenticate()}"  style="width: 100%;"/>
-                    <p>OU</p>
                 </h:form>
-                <h:form style="width: 100%;">
-                    <h:commandButton class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-right" value="Registre-se" action="#{webRoutes.goTo('registro')}" style="padding: 0.5rem 2rem 0.5rem 1rem;width: 100%;"/>
-                </h:form>
+
             </div>
         </div>
         <div style="position:fixed; left: 10px; bottom: 10px">

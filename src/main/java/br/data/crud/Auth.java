@@ -5,12 +5,14 @@
  */
 package br.data.crud;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import br.data.model.User;
+import javax.inject.Named;
+
+import br.data.model.Aluno;
 
 /**
  *
@@ -27,22 +29,17 @@ public class Auth implements Serializable {
     public Auth() {
     }
 
-    private User user;
+    private Aluno user;
     private boolean auth = false;
     private String login;
-    private String password;
+    private String senha;
 
 
     public String authenticate() {
-        user = new br.data.crud.CrudUser().getAuth(login, password);
+        user = new br.data.crud.CrudAluno().getAuth(login, senha);
         auth = user != null;
         if (auth) {
-            if (user.getEnable()) {
-                return "perfil";
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario precisa ser ativado.", "Error"));
-                return null;
-            }
+            return "perfil";
         }
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login ou senha inválidos.", "Error"));
         return null;
@@ -54,7 +51,7 @@ public class Auth implements Serializable {
         return "index.xhtml";
     }
 
-    public User getUser() {
+    public Aluno getUser() {
         return user;
     }
 
@@ -70,11 +67,11 @@ public class Auth implements Serializable {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

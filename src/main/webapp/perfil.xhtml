@@ -6,8 +6,26 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
-        <div style="border: 1px solid black; margin: 0px 60px; padding: 20px;">
+    <h:body style="margin: 0">
+        <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: rgba(46, 46, 173, 0.322); margin:0">Perfil</h1>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
+          <h:form>
+              <h:commandButton value="Grade" action="#{webRoutes.goTo('grade')}" style="
+              background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+          </h:form>
+
+          <h:form>
+              <h:commandButton value="Disciplinas" action="#{webRoutes.goTo('disciplinas')}" style="
+                  background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+          </h:form>
+
+          <h:form>
+              <h:commandButton value="Sair" action="#{webRoutes.goTo('index')}" style="
+                  background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+          </h:form>
+        </div>
+        <div style="border: 1px solid black; margin-top: 1rem; padding: 20px;" >
             <div style="height: 80px; display: flex; align-items: center; justify-content: space-between;">
                 <h1> MEU PERFIL </h1>
             </div>
@@ -15,16 +33,6 @@
                 <h:inputText value="#{jsfPerfil.nomeAluno()}" disabled="true"/>
                 <h:inputText value="#{jsfPerfil.raAluno()}" disabled="true"/>
             </h:form>
-
-            <div style="display: flex; align-items: center; justify-content: center; height: 350px;">
-                <h:button value="Disciplinas" onclick="#{jsfPerfil.goTelaDisciplinas()}" style="margin-left: 20px; cursor: pointer;"/>
-                <h:form>
-                    <h:commandButton value="Grades" action="#{webRoutes.goTo('grade')}" />
-                </h:form>
-                <h:form>
-                    <h:commandButton value="Sair do perfil" action="#{webRoutes.goTo('index')}" />
-                </h:form>
-            </div>
         </div>
        
 

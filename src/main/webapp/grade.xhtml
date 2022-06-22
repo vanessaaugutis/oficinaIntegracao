@@ -31,52 +31,44 @@
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                 padding: 16px;"
             >
+                <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: rgba(46, 46, 173, 0.322);">Grade <p style="margin-left:5px"> (Disciplinas matriculadas)</p></h1>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
+              <h:form>
+                  <h:commandButton value="Perfil" action="#{webRoutes.goTo('perfil')}" style="
+                  background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+              </h:form>
+
+              <h:form>
+                  <h:commandButton value="Disciplinas" action="#{webRoutes.goTo('disciplinas')}" style="
+                      background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+              </h:form>
+
+              <h:form>
+                  <h:commandButton value="Sair" action="#{webRoutes.goTo('index')}" style="
+                      background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+              </h:form>
+            </div>
  <h:form>
 
-                        <p:dataTable var="user" value="#{jsfUser.all}" widgetVar="customersTable"
-                                     emptyMessage="No organization found with given criteria"
-                                     filteredValue=""
-                                     rows="10"
-                                     paginator="true"
-                                     rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
-                                     >
-
-<!--                            <f:facet name="header">
-                                <div class="p-d-flex p-ai-center p-jc-between">
-                                    <span>List of Users</span>
-                                    <div align="right">
-                                        <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:10rem" placeholder="Enter keyword" />
-                                    </div>
-                                </div>
-                            </f:facet>-->
+                        <p:dataTable var="user" value="#{jsfAluno.all}" widgetVar="customersTable"
+                            emptyMessage="No organization found with given criteria"
+                            filteredValue=""
+                            rows="10"
+                            paginator="true"
+                            rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
+                        >
 
                             <p:column  headerText="ID" sortBy="#{user.id}" filterBy="#{orga.id}">
                                 <p:outputLabel value="#{user.id}" />
                             </p:column>
 
-                            <p:column  headerText="Name" sortBy="#{user.name}" filterBy="#{user.name}">
-                                <p:outputLabel value="#{user.name}"/>
+                            <p:column  headerText="Name" sortBy="#{user.nome}" filterBy="#{user.nome}">
+                                <p:outputLabel value="#{user.nome}"/>
                             </p:column>
 
                             <p:column  headerText="E-Mail" sortBy="#{user.email}" filterBy="#{user.email}">
                                 <p:outputLabel value="#{user.email}"/>
-                            </p:column>
-
-                            <p:column  headerText="Created" sortBy="#{user.created}" filterBy="#{user.created}">
-                                <p:outputLabel value="#{user.created}" >
-                                    <!--<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" timeZone="GMT-03:00" />-->
-                                </p:outputLabel>
-                            
-                            </p:column>
-
-                            <p:column  headerText="Obs" sortBy="#{user.obs}" filterBy="#{user.obs}">
-                                <p:outputLabel value="#{user.obs}"/>
-                            </p:column>
-
-                            <p:column headerText="Active" sortBy="#{user.enable}" filterBy="#{user.enable}">
-                                <p:selectBooleanCheckbox value="#{user.enable}" >
-                                    <p:ajax update="msg" listener="#{jsfUser.turnActive(user)}"/>
-                                </p:selectBooleanCheckbox>
                             </p:column>
 
                         </p:dataTable>
