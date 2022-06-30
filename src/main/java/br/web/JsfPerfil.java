@@ -16,32 +16,43 @@ import javax.inject.Named;
 
 public class JsfPerfil {
     private String nomeAluno;
-    private String raAluno;
+    private String emailAluno;
     
     public String nomeAluno() {
-        this.setNomeAluno("Vanessa");
+        /*
+        var emailLogado = auth.login;
+        var todosAlunos = Alunos.all();
+        
+        todosAlunos.forEach((aluno)=> {
+            if(aluno.email == emailLogado) {
+                this.setNomeAluno(aluno.nome);
+            }
+        }) 
+        */
+        
         return this.getNomeAluno();
     }
     
-    public String raAluno() {
-        this.setRaAluno("2268132");
-        return this.getRaAluno();
+    public String emailAluno() {
+        /*var emailLogado = auth.login;
+        this.setEmailAluno(emailLogado);*/
+        return this.getEmailAluno();
     }
 
     public void setNomeAluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
     }
 
-    public void setRaAluno(String raAluno) {
-        this.raAluno = raAluno;
+    public void setEmailAluno(String raAluno) {
+        this.emailAluno = raAluno;
     }
 
     public String getNomeAluno() {
         return nomeAluno;
     }
 
-    public String getRaAluno() {
-        return raAluno;
+    public String getEmailAluno() {
+        return emailAluno;
     }
     
 }
