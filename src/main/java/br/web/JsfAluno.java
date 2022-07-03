@@ -8,8 +8,6 @@ package br.web;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import br.data.crud.CrudAluno;
@@ -32,22 +30,9 @@ public class JsfAluno {
     private String nome;
     private String email;
     private String senha;
-    // variaveis usadas para trocar senha
 
     public List<Aluno> getAll() {
         return new CrudAluno().getAll();
-    }
-
-    public void turnActive(Aluno user) {
-        if (user.getId() != null) {
-            if (new CrudAluno().merge(user) == null) {
-                FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Estado modificado.", ""));
-            }
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao modificar estado.", "Error"));
-        }
     }
 
     public String getNome() {

@@ -22,16 +22,16 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author alexandrelerario
+ * @author Victor
  */
 @Entity
 @Table(name = "aluno")
 @NamedQueries({
-    @NamedQuery(name = "Aluno.findAll", query = "SELECT u FROM Aluno u order by u.id_aluno"),
-    @NamedQuery(name = "Aluno.findById", query = "SELECT u FROM Aluno u WHERE u.id_aluno = :id_aluno"),
-    @NamedQuery(name = "Aluno.findByName", query = "SELECT u FROM Aluno u WHERE u.nome = :nome"),
-    @NamedQuery(name = "Aluno.findByEmail", query = "SELECT u FROM Aluno u WHERE u.email = :email"),
-    @NamedQuery(name = "Aluno.findByPassword", query = "SELECT u FROM Aluno u WHERE u.senha = :senha"),
+    @NamedQuery(name = "Aluno.findAll", query = "SELECT a FROM Aluno a order by a.id_aluno"),
+    @NamedQuery(name = "Aluno.findById", query = "SELECT a FROM Aluno a WHERE a.id_aluno = :id_aluno"),
+    @NamedQuery(name = "Aluno.findByName", query = "SELECT a FROM Aluno a WHERE a.nome = :nome"),
+    @NamedQuery(name = "Aluno.findByEmail", query = "SELECT a FROM Aluno a WHERE a.email = :email"),
+    @NamedQuery(name = "Aluno.findByPassword", query = "SELECT a FROM Aluno a WHERE a.senha = :senha"),
 })
 public class Aluno implements Serializable {
 
@@ -42,16 +42,19 @@ public class Aluno implements Serializable {
     private Integer id_aluno;
     @Basic(optional = false)
     @NotNull
+    
     @Size(min = 1, max = 60)
     @Column(name = "nome")
     private String nome;
     @Basic(optional = false)
     @NotNull
+
     @Size(min = 1, max = 100)
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
     @NotNull
+
     @Size(min = 1, max = 33)
     @Column(name = "senha")
     private String senha;

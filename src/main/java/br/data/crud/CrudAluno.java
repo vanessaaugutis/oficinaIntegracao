@@ -12,7 +12,7 @@ import br.data.model.Aluno;
 
 /**
  *
- * @author alexandrelerario
+ * @author Victor
  */
 public class CrudAluno extends AbstractCrud<br.data.model.Aluno> {
 
@@ -31,7 +31,7 @@ public class CrudAluno extends AbstractCrud<br.data.model.Aluno> {
     }
     
     
-    public int getIdByEmail(String user_email) { // 21.04.2021
+    public int getIdByEmail(String user_email) {
         try {
             Aluno user = (Aluno) getEntityManager().createNamedQuery("Aluno.findByEmail").setParameter("email", user_email).getSingleResult();
             return user.getId();
@@ -70,7 +70,6 @@ public class CrudAluno extends AbstractCrud<br.data.model.Aluno> {
         return chave;
      }
 
-    // os metodos abaixo sao opcionais
     public Aluno getAuth(String user_email, String senha) {
         try {
             Aluno user = (Aluno) getEntityManager().createNamedQuery("Aluno.findByEmail").setParameter("email", user_email).getSingleResult();
@@ -86,7 +85,6 @@ public class CrudAluno extends AbstractCrud<br.data.model.Aluno> {
         return null;
     }
     
-    //sobrescrever persist para gravar a md5 da senha
     @Override
     public Exception persist(Aluno entity) {
         entity.setSenha(new br.data.util.Util().getMd5(entity.getSenha()));
