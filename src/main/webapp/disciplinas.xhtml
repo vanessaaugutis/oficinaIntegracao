@@ -27,62 +27,83 @@
         </style>
     </h:head>
     <h:body style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+        <div style="
+            margin: 0;
+            width: 100%; 
+            min-height: 100vh; 
+            align-items: center;
+            justify-content: center;
+            background: #f5f7fa;
+            min-height: 100vh;
+        ">
 
-      <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: #cfd5e1; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
-          Disciplinas
-          <i class="pi pi-book" style="font-size: 16px; margin-left: 5px"></i>
-      </h1>
+            <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: #cfd5e1; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+                Disciplinas
+                <i class="pi pi-book" style="font-size: 16px; margin-left: 5px"></i>
+            </h1>
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
-        <h:form>
-            <p:commandButton value="Perfil" icon="pi pi-user" iconPos="right" action="#{webRoutes.goTo('perfil')}" ajax="false"/>
-        </h:form>
-          
-        <h:form>
-            <p:commandButton value="Minha grade" icon="pi pi-star" iconPos="right" action="#{webRoutes.goTo('grade')}" ajax="false"/>
-        </h:form>
-        
-        <h:form>
-            <p:commandButton value="Sair" icon="pi pi-sign-out" iconPos="right" action="#{webRoutes.goTo('index')}" ajax="false"/>
-        </h:form>
-      </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
+              <h:form>
+                  <p:commandButton value="Perfil" icon="pi pi-user" iconPos="right" action="#{webRoutes.goTo('perfil')}" ajax="false"/>
+              </h:form>
 
-      <table style="display: flex; align-items: center; justify-content: center;">
-        <th>Disciplina</th>
-        <th>Turma</th>
-        <th>Carga Horária</th>
+              <h:form>
+                  <p:commandButton value="Minha grade" icon="pi pi-star" iconPos="right" action="#{webRoutes.goTo('grade')}" ajax="false"/>
+              </h:form>
 
-        <tr>
-          <td>AS34A</td>
-          <td>N14</td>
-          <td>72 horas</td>
-        </tr>
+              <h:form>
+                  <p:commandButton value="Sair" icon="pi pi-sign-out" iconPos="right" action="#{webRoutes.goTo('index')}" ajax="false"/>
+              </h:form>
+            </div>
+            <div style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: white;
+                border-radius: 8px;
+                height: 100%;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                padding: 16px;
+                margin: 1rem;"
+            >
+                <h:form style="max-height:600px; overflow-y: auto;">
 
-        <tr>
-          <td>AS34A</td>
-          <td>N14</td>
-          <td>72 horas</td>
-        </tr>
+                    <p:dataTable var="disciplina" value="#{jsfDisciplina.all}" widgetVar="customersTable"
+                        emptyMessage="Nenhuma disciplina na grade"
+                        filteredValue=""
+                        rows="10"
+                        paginator="true"
+                        rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
+                    >
 
-        <tr>
-          <td>AS34A</td>
-          <td>N14</td>
-          <td>72 horas</td>
-        </tr>
+                        <p:column  headerText="ID" sortBy="#{disciplina.id}" filterBy="#{disciplina.id}">
+                            <p:outputLabel value="#{disciplina.id}" />
+                        </p:column>
+                        <p:column  headerText="Disciplina" sortBy="#{disciplina.nome}" filterBy="#{disciplina.nome}">
+                            <p:outputLabel value="#{disciplina.nome}"/>
+                        </p:column>
 
-        <tr>
-          <td>AS34A</td>
-          <td>N14</td>
-          <td>72 horas</td>
-        </tr>
+                        <p:column  headerText="Semestre" sortBy="#{disciplina.semestre}" filterBy="#{disciplina.semestre}">
+                            <p:outputLabel value="#{disciplina.semestre}"/>
+                        </p:column>
 
-        <tr>
-          <td>AS34A</td>
-          <td>N14</td>
-          <td>72 horas</td>
-        </tr>
+                        <p:column  headerText="Turma" sortBy="#{disciplina.turma}" filterBy="#{disciplina.turma}">
+                            <p:outputLabel value="#{disciplina.turma}"/>
+                        </p:column>
 
-      </table>
+                        <p:column  headerText="Carga horária (horas)" sortBy="#{disciplina.cargaHoraria}" filterBy="#{disciplina.cargaHoraria}">
+                            <p:outputLabel value="#{disciplina.cargaHoraria}"/>
+                        </p:column>
+                    </p:dataTable>
+
+                    <p:confirmPopup global="true">
+                        <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirm-popup-yes" />
+                    </p:confirmPopup>
+                </h:form>
+            </div>
+        </div>
   </h:body>
 </html>
 

@@ -39,7 +39,11 @@ public class CrudAluno extends AbstractCrud<br.data.model.Aluno> {
           System.out.println(e.getMessage());
           return -1;
         }
+    }
 
+    public Aluno show(String user_email) {
+        Aluno user = (Aluno) getEntityManager().createNamedQuery("Aluno.findByEmail").setParameter("email", user_email).getSingleResult();
+        return user;
     }
 
      public void changePass(String newPass, String user_email){

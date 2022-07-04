@@ -11,31 +11,20 @@ import javax.enterprise.context.ApplicationScoped;
  */
 import javax.inject.Named;
 
+import br.data.crud.CrudAluno;
+
 @Named(value = "jsfPerfil")
 @ApplicationScoped
 
 public class JsfPerfil {
     private String nomeAluno;
     private String emailAluno;
-    
-    public String nomeAluno() {
-        /*
-        var emailLogado = auth.login;
-        var todosAlunos = Alunos.all();
-        
-        todosAlunos.forEach((aluno)=> {
-            if(aluno.email == emailLogado) {
-                this.setNomeAluno(aluno.nome);
-            }
-        }) 
-        */
-        
-        return this.getNomeAluno();
+
+    public String getByEmail(String email) {
+        return new CrudAluno().show(email).getNome();
     }
-    
+
     public String emailAluno() {
-        /*var emailLogado = auth.login;
-        this.setEmailAluno(emailLogado);*/
         return this.getEmailAluno();
     }
 

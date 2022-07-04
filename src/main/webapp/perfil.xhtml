@@ -31,8 +31,8 @@
                 <h1> MEU PERFIL </h1>
             </div>
             <h:form style="display: flex; align-items: center; justify-content: space-between;">
-                <h:inputText value="#{jsfPerfil.nomeAluno()}" disabled="true"/>
-                <h:inputText value="#{jsfPerfil.emailAluno()}" disabled="true"/>
+                <h:inputText value="#{jsfPerfil.getByEmail(auth.login)}" disabled="true"/>
+                <h:inputText value="#{auth.login}" disabled="true"/>
             </h:form>
         </div>
        
