@@ -8,7 +8,7 @@
     <h:head>
         <title>Login</title>
     </h:head>
-    <h:body style="margin: 0">
+    <h:body style="margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif;">
         <div style="
             display: flex;
             margin: 0;
@@ -17,6 +17,7 @@
             align-items: center;
             justify-content: center;
             background: #f5f7fa;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
             height: 100vh;"
          >
             <div style="
@@ -46,7 +47,7 @@
                         <p:password id="password" toggleMask="true" value="#{auth.senha}" required="true" requiredMessage="Informe sua senha" style="width: 100%;"/>
                     </label>
                     <br/>
-                    <p:commandButton value="Acessar" icon="pi pi-sign-in" iconPos="right" action="#{auth.authenticate()}"  style="width: 100%;"/>
+                    <p:commandButton value="Acessar" icon="pi pi-sign-in" iconPos="right" action="#{auth.authenticate()}"  style="width: 100%;" ajax="false"/>
                 </h:form>
 
             </div>

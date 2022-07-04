@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Disciplinas</title>
         <style>
@@ -27,26 +28,24 @@
     </h:head>
     <h:body style="font-family: Verdana, Arial, Helvetica, sans-serif;">
 
-      <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: rgba(46, 46, 173, 0.322);">Disciplinas</h1>
+      <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: #cfd5e1; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+          Disciplinas
+          <i class="pi pi-book" style="font-size: 16px; margin-left: 5px"></i>
+      </h1>
 
       <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
         <h:form>
-            <h:commandButton value="Perfil" action="#{webRoutes.goTo('perfil')}" style="
-            background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+            <p:commandButton value="Perfil" icon="pi pi-user" iconPos="right" action="#{webRoutes.goTo('perfil')}" ajax="false"/>
         </h:form>
           
         <h:form>
-            <h:commandButton value="Grade" action="#{webRoutes.goTo('grade')}" style="
-                background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+            <p:commandButton value="Minha grade" icon="pi pi-star" iconPos="right" action="#{webRoutes.goTo('grade')}" ajax="false"/>
         </h:form>
-          
+        
         <h:form>
-            <h:commandButton value="Sair" action="#{webRoutes.goTo('index')}" style="
-                background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
+            <p:commandButton value="Sair" icon="pi pi-sign-out" iconPos="right" action="#{webRoutes.goTo('index')}" ajax="false"/>
         </h:form>
       </div>
-      
-        
 
       <table style="display: flex; align-items: center; justify-content: center;">
         <th>Disciplina</th>

@@ -10,7 +10,6 @@
     </h:head>
     <h:body style="margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif;">
         <div style="
-            display: flex;
             margin: 0;
             width: 100%; 
             min-height: 100vh; 
@@ -18,65 +17,65 @@
             justify-content: center;
             background: #f5f7fa;
             height: 100vh;
-            padding: 20px 25px;"
+        "
          >
+            <h1 style="margin-top: 0px; padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: #cfd5e1;">
+                Grade <p style="margin-left:5px"> (Disciplinas matriculadas)</p>
+                <i class="pi pi-star" style="font-size: 16px; margin-left: 5px"></i>
+            </h1>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
+              <h:form>
+                  <p:commandButton value="Perfil" icon="pi pi-user" iconPos="right" action="#{webRoutes.goTo('perfil')}" ajax="false"/>
+              </h:form>
+
+              <h:form>
+                  <p:commandButton value="Disciplinas" icon="pi pi-book" iconPos="right" action="#{webRoutes.goTo('disciplinas')}" ajax="false"/>
+              </h:form>
+
+              <h:form>
+                  <p:commandButton value="Sair" icon="pi pi-sign-out" iconPos="right" action="#{webRoutes.goTo('index')}" ajax="false"/>
+              </h:form>
+            </div>
             <div style="
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                width: 100%;
                 background: white;
                 border-radius: 8px;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-                padding: 16px;"
+                padding: 16px;
+                margin: 1rem;"
             >
-                <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: rgba(46, 46, 173, 0.322);">Grade <p style="margin-left:5px"> (Disciplinas matriculadas)</p></h1>
+                <h:form>
 
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
-              <h:form>
-                  <h:commandButton value="Perfil" action="#{webRoutes.goTo('perfil')}" style="
-                  background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
-              </h:form>
+                    <p:dataTable var="grade" value="#{jsfGrade.all}" widgetVar="customersTable"
+                        emptyMessage="Nenhuma disciplina na grade"
+                        filteredValue=""
+                        rows="10"
+                        paginator="true"
+                        rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
+                    >
 
-              <h:form>
-                  <h:commandButton value="Disciplinas" action="#{webRoutes.goTo('disciplinas')}" style="
-                      background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
-              </h:form>
+                        <p:column  headerText="ID" sortBy="#{grade.id}" filterBy="#{grade.id}">
+                            <p:outputLabel value="#{grade.id}" />
+                        </p:column>
+                        <p:column  headerText="Disciplina" sortBy="#{grade.disciplina}" filterBy="#{grade.disciplina}">
+                            <p:outputLabel value="#{grade.disciplina.nome}"/>
+                        </p:column>
 
-              <h:form>
-                  <h:commandButton value="Sair" action="#{webRoutes.goTo('index')}" style="
-                      background-color: rgba(52, 52, 192, 0.247); border: 1px solid rgba(46, 46, 173, 0.322); border-radius: 8px; color: black ;padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"/>
-              </h:form>
-            </div>
- <h:form>
+                        <p:column  headerText="Nome do aluno" sortBy="#{grade.aluno}" filterBy="#{grade.aluno}">
+                            <p:outputLabel value="#{grade.aluno.nome}"/>
+                        </p:column>
 
-                        <p:dataTable var="grade" value="#{jsfGrade.all}" widgetVar="customersTable"
-                            emptyMessage="Nenhuma disciplina na grade"
-                            filteredValue=""
-                            rows="10"
-                            paginator="true"
-                            rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
-                        >
+                    </p:dataTable>
 
-                            <p:column  headerText="ID" sortBy="#{grade.id}" filterBy="#{grade.id}">
-                                <p:outputLabel value="#{grade.id}" />
-                            </p:column>
-                            <p:column  headerText="Name" sortBy="#{grade.disciplina}" filterBy="#{grade.disciplina}">
-                                <p:outputLabel value="#{grade.disciplina.nome}"/>
-                            </p:column>
-
-                            <p:column  headerText="E-Mail" sortBy="#{grade.aluno}" filterBy="#{grade.aluno}">
-                                <p:outputLabel value="#{grade.aluno.nome}"/>
-                            </p:column>
-
-                        </p:dataTable>
-
-                        <p:confirmPopup global="true">
-                            <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
-                            <p:commandButton value="Yes" type="button" styleClass="ui-confirm-popup-yes" />
-                        </p:confirmPopup>
-                    </h:form>
+                    <p:confirmPopup global="true">
+                        <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirm-popup-yes" />
+                    </p:confirmPopup>
+                </h:form>
             </div>
         </div>
         <div style="position:fixed; left: 10px; bottom: 10px">
