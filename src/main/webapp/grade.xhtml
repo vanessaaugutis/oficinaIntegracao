@@ -61,11 +61,11 @@
                         <p:column  headerText="ID" sortBy="#{grade.id}" filterBy="#{grade.id}">
                             <p:outputLabel value="#{grade.id}" />
                         </p:column>
-                        <p:column  headerText="Disciplina" sortBy="#{grade.disciplina}" filterBy="#{grade.disciplina}">
+                        <p:column  headerText="Disciplina" sortBy="#{grade.disciplina.nome}" filterBy="#{grade.disciplina.nome}">
                             <p:outputLabel value="#{grade.disciplina.nome}"/>
                         </p:column>
 
-                        <p:column  headerText="Nome do aluno" sortBy="#{grade.aluno}" filterBy="#{grade.aluno}">
+                        <p:column  headerText="Nome do aluno" sortBy="#{grade.aluno.nome}" filterBy="#{grade.aluno.nome}">
                             <p:outputLabel value="#{grade.aluno.nome}"/>
                         </p:column>
 
