@@ -3,6 +3,8 @@
   <persistence-unit name="oficina-database" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.data.model.Aluno</class>
+    <class>br.data.model.Grade</class>
+    <class>br.data.model.Disciplina</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

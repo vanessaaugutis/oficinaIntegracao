@@ -8,6 +8,8 @@ package br.data.crud;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import br.data.model.Grade;
+
 /**
  *
  * @author Victor
@@ -29,15 +31,9 @@ public class CrudGrade extends AbstractCrud<br.data.model.Grade> {
     }
     
     
-    // public int getIdByEmail(String user_email) { 
-    //     try {
-    //         Grade grade = (Grade) getEntityManager().createNamedQuery("Grade.findByEmail").setParameter("email", user_email).getSingleResult();
-    //         return grade.getId();
-    //     } catch (Exception e) {
-    //       System.out.println(e.getMessage());
-    //       return -1;
-    //     }
-
-    // }
+    @Override
+    public Exception persist(Grade entity) {
+        return super.persist(entity);
+    }
     
 }

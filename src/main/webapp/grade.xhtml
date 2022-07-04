@@ -8,7 +8,7 @@
     <h:head>
         <title>Grades</title>
     </h:head>
-    <h:body style="margin: 0">
+    <h:body style="margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif;">
         <div style="
             display: flex;
             margin: 0;
@@ -51,24 +51,23 @@
             </div>
  <h:form>
 
-                        <p:dataTable var="user" value="#{jsfAluno.all}" widgetVar="customersTable"
-                            emptyMessage="No organization found with given criteria"
+                        <p:dataTable var="grade" value="#{jsfGrade.all}" widgetVar="customersTable"
+                            emptyMessage="Nenhuma disciplina na grade"
                             filteredValue=""
                             rows="10"
                             paginator="true"
                             rowsPerPageTemplate="5,10,30,{ShowAll|'All'}"
                         >
 
-                            <p:column  headerText="ID" sortBy="#{user.id}" filterBy="#{orga.id}">
-                                <p:outputLabel value="#{user.id}" />
+                            <p:column  headerText="ID" sortBy="#{grade.id}" filterBy="#{grade.id}">
+                                <p:outputLabel value="#{grade.id}" />
+                            </p:column>
+                            <p:column  headerText="Name" sortBy="#{grade.disciplina}" filterBy="#{grade.disciplina}">
+                                <p:outputLabel value="#{grade.disciplina.nome}"/>
                             </p:column>
 
-                            <p:column  headerText="Name" sortBy="#{user.nome}" filterBy="#{user.nome}">
-                                <p:outputLabel value="#{user.nome}"/>
-                            </p:column>
-
-                            <p:column  headerText="E-Mail" sortBy="#{user.email}" filterBy="#{user.email}">
-                                <p:outputLabel value="#{user.email}"/>
+                            <p:column  headerText="E-Mail" sortBy="#{grade.aluno}" filterBy="#{grade.aluno}">
+                                <p:outputLabel value="#{grade.aluno.nome}"/>
                             </p:column>
 
                         </p:dataTable>

@@ -8,6 +8,8 @@ package br.data.crud;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import br.data.model.Disciplina;
+
 /**
  *
  * @author Victor
@@ -29,15 +31,9 @@ public class CrudDisciplina extends AbstractCrud<br.data.model.Disciplina> {
     }
     
     
-    // public int getIdByEmail(String user_email) {
-    //     try {
-    //         Disciplina grade = (Disciplina) getEntityManager().createNamedQuery("Disciplina.findByEmail").setParameter("email", user_email).getSingleResult();
-    //         return grade.getId();
-    //     } catch (Exception e) {
-    //       System.out.println(e.getMessage());
-    //       return -1;
-    //     }
-
-    // }
+    @Override
+    public Exception persist(Disciplina entity) {
+        return super.persist(entity);
+    }
     
 }

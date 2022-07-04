@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -28,7 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Disciplina.findAll", query = "SELECT d FROM Disciplina d"),
-    @NamedQuery(name = "Disciplina.findById", query = "SELECT d FROM Disciplina d WHERE d.id_disciplina = :id_disciplina"),
     @NamedQuery(name = "Disciplina.findByTurma", query = "SELECT d FROM Disciplina d WHERE d.turma = :turma"),
     @NamedQuery(name = "Disciplina.findBySemestre", query = "SELECT d FROM Disciplina d WHERE d.semestre = :semestre"), 
     @NamedQuery(name = "Disciplina.findByCargaHoraria", query = "SELECT d FROM Disciplina d WHERE d.carga_horaria = :carga_horaria")
@@ -42,6 +42,7 @@ public class Disciplina implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_disciplina")
     private Integer id_disciplina;
+    @NotNull
 
     @Size(min = 1, max = 50)
     @Column(name = "nome")
@@ -62,6 +63,14 @@ public class Disciplina implements Serializable {
 
     public Disciplina(Integer id_disciplina) {
         this.id_disciplina = id_disciplina;
+    }
+
+    public Disciplina(Integer id_disciplina, String nome, Integer carga_horaria, Integer semestre, String turma) {
+        this.id_disciplina = id_disciplina;
+        this.nome = nome;
+        this.turma = turma;
+        this.carga_horaria = carga_horaria;
+        this.semestre = semestre;
     }
 
     public Integer getId() {

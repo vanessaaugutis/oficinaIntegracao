@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,9 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Grade.findAll", query = "SELECT g FROM Grade g"),
-    @NamedQuery(name = "Grade.findById", query = "SELECT g FROM Grade g WHERE g.id = :id"),
-    @NamedQuery(name = "Grade.findByAluno", query = "SELECT g FROM Grade g WHERE g.id_aluno = :id_aluno"),
-    @NamedQuery(name = "Grade.findByDisciplina", query = "SELECT g FROM Grade g WHERE g.id_disciplina = :id_disciplina")})
+})
 public class Grade implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,12 +39,13 @@ public class Grade implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_grade")
     private Integer id_grade;
-
-    @JoinColumn(name = "aluno", referencedColumnName = "id_aluno")
+    @NotNull
+    
+    @JoinColumn(name = "id_aluno", referencedColumnName = "id_aluno")
     @ManyToOne
     private Aluno aluno;
     
-    @JoinColumn(name = "disciplina", referencedColumnName = "id_disciplina")
+    @JoinColumn(name = "id_disciplina", referencedColumnName = "id_disciplina")
     @ManyToOne
     private Disciplina disciplina;
 
@@ -54,6 +54,12 @@ public class Grade implements Serializable {
 
     public Grade(Integer id_grade) {
         this.id_grade = id_grade;
+    }
+
+    public Grade(Integer id_grade, Aluno aluno, Disciplina disciplina) {
+        this.id_grade = id_grade;
+        this.aluno = aluno;
+        this.disciplina = disciplina;
     }
 
     public Integer getId() {
@@ -68,16 +74,16 @@ public class Grade implements Serializable {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setAluno(Aluno id_aluno) {
+        this.aluno = id_aluno;
     }
 
     public Disciplina getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void setDisciplina(Disciplina id_disciplina) {
+        this.disciplina = id_disciplina;
     }
 
     @Override

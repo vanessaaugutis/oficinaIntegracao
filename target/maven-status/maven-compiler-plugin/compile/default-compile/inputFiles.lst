@@ -1,8 +1,14 @@
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/model/Aluno.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/CrudGrade.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfPerfil.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfDisciplina.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfApp.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/CrudDisciplina.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/model/Disciplina.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfGrade.java
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/EMNames.java
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfAluno.java
-/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfPerfil.java
-/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/JsfApp.java
+/home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/model/Grade.java
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/web/WebRoutes.java
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/CrudAluno.java
 /home/victor/Desktop/projects/oficinaIntegracao/src/main/java/br/data/crud/Auth.java

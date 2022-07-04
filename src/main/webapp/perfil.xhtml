@@ -4,9 +4,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Minha Grade</title>
     </h:head>
-    <h:body style="margin: 0">
+    <h:body style="margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif;">
         <h1 style="padding: 1rem; width: 100%; height: 15vh; display: flex; align-items: center; justify-content: center; background-color: rgba(46, 46, 173, 0.322); margin:0">Perfil</h1>
 
         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 20px; margin-top: 1rem;">
@@ -31,7 +31,7 @@
             </div>
             <h:form style="display: flex; align-items: center; justify-content: space-between;">
                 <h:inputText value="#{jsfPerfil.nomeAluno()}" disabled="true"/>
-                <h:inputText value="#{jsfPerfil.raAluno()}" disabled="true"/>
+                <h:inputText value="#{jsfPerfil.emailAluno()}" disabled="true"/>
             </h:form>
         </div>
        
