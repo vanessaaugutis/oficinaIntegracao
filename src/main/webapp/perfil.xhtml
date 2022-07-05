@@ -30,13 +30,24 @@
             <div style="height: 80px; display: flex; align-items: center; justify-content: space-between;">
                 <h1> MEU PERFIL </h1>
             </div>
-            <h:form style="display: flex; align-items: center; justify-content: space-between;">
-                <h:inputText value="#{jsfPerfil.getByEmail(auth.login)}" disabled="true"/>
-                <h:inputText value="#{auth.login}" disabled="true"/>
+            <h:form style="display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                background: white;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                padding: 16px;
+                margin: 1rem;">
+                <div style="display: flex; flex-direction: column; ">
+                    <p style="line-height: 0;">Nome</p>
+                    <h:inputText style="height: 35px; width: 16rem;" value="#{jsfPerfil.getByEmail(auth.login)}" disabled="true"/>
+                </div>
+                <div>
+                    <p style="line-height: 0;">Email</p>
+                    <h:inputText  style="height: 35px; width: 16rem;" value="#{auth.login}" disabled="true"/>
+                </div>
             </h:form>
-        </div>
-       
-
-        
+        </div>        
 </h:body>
 </html>
